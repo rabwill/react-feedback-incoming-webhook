@@ -6,4 +6,5 @@ export interface IPageFeedbackProps {
   displayName:string;
   pageName:string;
   pageUrl:string;
+  connectorUrl:string;
 }

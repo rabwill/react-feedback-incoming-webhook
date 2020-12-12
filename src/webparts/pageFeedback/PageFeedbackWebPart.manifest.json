@@ -17,11 +17,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "page-feedback" },
-    "description": { "default": "page-feedback description" },
-    "officeFabricIconFontName": "Page",
+    "title": { "default": "Page feedback webpart" },
+    "description": { "default": "Send page feedback to Microsoft Teams channel" },
+    "officeFabricIconFontName": "Feedback",
     "properties": {
-      "description": "page-feedback"
+      "connectorUrl": "<You webhook url here>"
     }
   }]
 }

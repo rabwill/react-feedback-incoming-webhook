@@ -12,13 +12,11 @@ import PageFeedback from './components/PageFeedback';
 import { IPageFeedbackProps } from './components/IPageFeedbackProps';
 
 export interface IPageFeedbackWebPartProps {
-  description: string;
+  connectorUrl: string;
 }
 
 export default class PageFeedbackWebPart extends BaseClientSideWebPart<IPageFeedbackWebPartProps> {
-
   public render(): void {
-    console.log(this.context.pageContext.user.loginName)
     const element: React.ReactElement<IPageFeedbackProps> = React.createElement(
       PageFeedback,
       {
@@ -26,17 +24,15 @@ export default class PageFeedbackWebPart extends BaseClientSideWebPart<IPageFeed
         loginName:this.context.pageContext.user.loginName,
         displayName:this.context.pageContext.user.displayName,
         pageName:window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1),
-        pageUrl:window.location.href
+        pageUrl:window.location.href,
+        connectorUrl:this.properties.connectorUrl
       }
-    );
-
-    ReactDom.render(element, this.domElement);
+    ); ReactDom.render(element, this.domElement);
   }
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);
   }
-
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
@@ -52,7 +48,7 @@ export default class PageFeedbackWebPart extends BaseClientSideWebPart<IPageFeed
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
+                PropertyPaneTextField('connectorUrl', {
                   label: strings.DescriptionFieldLabel
                 })
               ]
