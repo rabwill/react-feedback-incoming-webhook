@@ -3,7 +3,7 @@
 ## Summary
 
 A simple SPFx feedback webpart which sends notifications to a Microsoft Teams channel when any user gives a feedback for a page in the portal.
-Uses adaptive cards for both the feedback form as well as the [Incoming Webhool Url](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?WT.mc_id=m365-11878-rwilliams) to post notification message in Teams.
+Uses adaptive cards for both the feedback form as well as the notification message for the connector([Incoming Webhook](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?WT.mc_id=m365-11878-rwilliams)) to post notification in Teams.
 
 ![main-image](./assets/main.png)
 
@@ -32,8 +32,7 @@ react-page-feedback.sppkg | [Rabia Williams](https://twitter.com/williamsrabia)
 
 Version|Date|Comments
 -------|----|--------
-1.1|March 10, 2021|Update comment
-1.0|January 29, 2021|Initial release
+1.0|December 13, 2020|Initial release
 
 ## Disclaimer
 
@@ -48,14 +47,16 @@ Version|Date|Comments
 - in the command-line run:
   - **npm install**
   - **gulp serve**
+- Update the webpart settings to have the URL to your configured Incoming Webhook URL, [see here how you can configure one](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?WT.mc_id=m365-11878-rwilliams)
 
-  > Microsoft Graph API  Permission has to be granted at a minimum of User.Read
+  > Microsoft Graph API  Permission has to be granted at a minimum of User.Read. Check this blog for more info on how to do that [Grant API Permission using CLI for Microsoft365](https://blog.mastykarz.nl/grant-api-permissions-office-365-cli/), previously knows as Office365CLI.
+
 
 ## Features
 
-- The webhook URL is configurable for ease of change (should ideally be a secret, but used as a feature here for demo purpose)
+- The webhook URL is configurable for ease of change (should ideally be a secret, but used as a setting here for demo purpose)
 - Uses Graph to get user information to be clear on the feedback card in Teams conversation.
-- Used adaptive cards for easy development in SPFx
+- Used adaptive cards for easy development in SPFx as well as to post the message to Teams, making it more interactive and grab more attention.
 
 ## References
 
